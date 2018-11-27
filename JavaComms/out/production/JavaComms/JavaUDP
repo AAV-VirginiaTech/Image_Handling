@@ -1,0 +1,31 @@
+import java.io.*;
+
+import static org.junit.Assert.*;
+
+
+public class JavaUDP
+{
+    //states for client to server and back
+    UDPClient client;
+
+    public void UDPsetup() throws IOException
+    {
+        new UDPServer().start();
+        client = new UDPClient();
+    }
+
+    public void UDPCommunication() throws IOException
+    {
+        String message = client.sendUDP("hello Server");
+        assertEquals("hello server", message);
+        message = client.sendUDP("server is working");
+        assertFalse(message.equals("hello server"));
+    }
+
+    public void UDP_close() throws IOException
+    {
+        client.sendUDP("end");
+        client.close();
+    }
+
+}
