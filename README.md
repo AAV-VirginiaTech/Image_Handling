@@ -3,5 +3,6 @@ Contains the code to handle getting images from the camera to the on board chip 
 ## Usage
 Run in the shell
 ```bash
+chmod +x ImageTransfer.sh
 ./ImageTransfer.sh
 ```
